@@ -571,8 +571,8 @@ function Contact() {
               <span className="italic ember-gradient-text">AI/ML</span> role in mind? Let&apos;s talk.
             </h2>
             <p className="mt-5 max-w-xl text-muted-foreground">
-              I&apos;m actively looking for full-time opportunities and meaningful internships. Open to remote, hybrid,
-              or relocation.
+              I&apos;m actively looking for full-time opportunities and meaningful internships. Open to on-site,
+              remote &amp; hybrid jobs.
             </p>
           </div>
           <div className="md:col-span-4 space-y-3">
