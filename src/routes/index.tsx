@@ -1,6 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import {
   ArrowUpRight,
+  ArrowUp,
+  Download,
   Github,
   Linkedin,
   Mail,
@@ -15,7 +18,9 @@ import {
   Briefcase,
   Award,
   Star,
+  CheckCircle2,
 } from "lucide-react";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -50,9 +55,10 @@ const skills = {
     "RAG",
     "Agentic AI",
   ],
-  "CS Foundations": ["Data Structures & Algorithms", "DBMS", "OOP"],
-  "Tools": ["GitHub", "Google Colab", "Java Swing"],
+  "CS Foundations": ["Data Structures & Algorithms", "DBMS", "OOP", "Computer Networks"],
+  "Tools": ["Git", "GitHub", "Google Colab", "Java Swing"],
 };
+
 
 const projects = [
   {
@@ -174,6 +180,7 @@ const certifications = [
 ];
 
 function Portfolio() {
+  useScrollReveal();
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-background text-foreground">
       {/* Ambient backdrop */}
@@ -187,66 +194,111 @@ function Portfolio() {
       <Hero />
       <Marquee />
       <About />
+      <WhyMe />
       <Skills />
       <Projects />
       <Experience />
       <EducationAndCerts />
       <Contact />
       <Footer />
+      <BackToTop />
     </div>
   );
+}
+
+function useScrollReveal() {
+  useEffect(() => {
+    const els = document.querySelectorAll<HTMLElement>(".reveal");
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("is-visible");
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
 }
 
 function Nav() {
   return (
     <header className="sticky top-0 z-40 backdrop-blur-md bg-background/60 border-b border-border/60">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 sm:px-6 py-3 sm:py-4">
         <a href="#top" className="flex items-center gap-2 font-mono text-sm tracking-tight">
           <span className="inline-block h-2 w-2 rounded-full bg-ember animate-pulse-ring" />
-          kimaya.ahire
+          <span>kimaya.ahire</span>
+
         </a>
         <nav className="hidden md:flex items-center gap-7 text-sm text-muted-foreground">
           <a href="#about" className="hover:text-foreground transition">About</a>
+          <a href="#why" className="hover:text-foreground transition">Why me</a>
           <a href="#skills" className="hover:text-foreground transition">Skills</a>
           <a href="#work" className="hover:text-foreground transition">Work</a>
           <a href="#experience" className="hover:text-foreground transition">Experience</a>
           <a href="#contact" className="hover:text-foreground transition">Contact</a>
         </nav>
-        <a
-          href="mailto:ahirekim.2444@gmail.com"
-          className="group inline-flex items-center gap-1.5 rounded-full border border-ember/40 bg-ember/10 px-3.5 py-1.5 text-xs font-medium text-foreground hover:bg-ember hover:text-primary-foreground transition"
-        >
-          Hire me
-          <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-        </a>
+        <div className="flex items-center gap-2">
+          <a
+            href="/Kimaya_Ahire_Resume.pdf"
+            download
+            className="group inline-flex items-center gap-1.5 rounded-full bg-ember px-3 sm:px-3.5 py-1.5 text-xs font-medium text-primary-foreground glow-ember hover:translate-y-[-1px] transition"
+          >
+            <Download className="h-3.5 w-3.5" />
+            <span className="hidden sm:inline">Download Resume</span>
+            <span className="sm:hidden">Resume</span>
+          </a>
+          <a
+            href="#contact"
+            className="group hidden sm:inline-flex items-center gap-1.5 rounded-full border border-ember/40 bg-ember/10 px-3.5 py-1.5 text-xs font-medium text-foreground hover:bg-ember hover:text-primary-foreground transition"
+          >
+            Hire me
+            <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+          </a>
+        </div>
       </div>
     </header>
   );
 }
 
+
+
 function Hero() {
   return (
-    <section id="top" className="relative mx-auto max-w-6xl px-6 pt-20 pb-24 md:pt-32 md:pb-32">
+    <section id="top" className="relative mx-auto max-w-6xl px-4 sm:px-6 pt-16 pb-20 md:pt-32 md:pb-32">
       <div className="grid items-end gap-10 md:grid-cols-12">
         <div className="md:col-span-8 animate-fade-up">
           <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-3 py-1 text-xs font-mono text-muted-foreground">
             <Sparkles className="h-3 w-3 text-ember" />
             Available · Graduating 2026 · Hyderabad, India
           </div>
-          <h1 className="mt-6 font-display text-[clamp(2.6rem,7vw,5.5rem)] font-500 leading-[0.95] tracking-tight text-balance">
-            Building software with a{" "}
-            <span className="italic ember-gradient-text">mind for machines</span>.
+          <h1 className="mt-6 font-display text-[clamp(2.2rem,7vw,5.5rem)] font-500 leading-[0.95] tracking-tight text-balance">
+            Software Engineer crafting{" "}
+            <span className="italic ember-gradient-text">AI-powered solutions</span>.
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground text-balance">
-            I&apos;m <span className="text-foreground">Kimaya Ahire</span> — a final-year Computer Science student shipping
-            end-to-end projects across <span className="text-foreground">software engineering</span> and{" "}
+          <p className="mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-muted-foreground text-balance">
+            I&apos;m <span className="text-foreground">Kimaya Ahire</span> — a final-year Computer Science student
+            developing end-to-end software and AI projects across{" "}
+            <span className="text-foreground">software engineering</span> and{" "}
             <span className="text-foreground">AI/ML</span>. From ride-matching recommenders to real-estate forecasting and
             agentic AI workflows.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <a
-              href="#work"
+              href="/Kimaya_Ahire_Resume.pdf"
+              download
               className="group inline-flex items-center gap-2 rounded-full bg-ember px-5 py-2.5 text-sm font-medium text-primary-foreground glow-ember hover:translate-y-[-1px] transition"
+            >
+              <Download className="h-4 w-4" />
+              Download Resume (PDF)
+            </a>
+            <a
+              href="#work"
+              className="group inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-5 py-2.5 text-sm text-foreground hover:bg-surface-2 transition"
             >
               See selected work
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -269,6 +321,7 @@ function Hero() {
             </a>
           </div>
         </div>
+
 
         <div className="md:col-span-4 animate-fade-up [animation-delay:120ms]">
           <div className="relative rounded-2xl border border-border bg-surface/60 p-6 backdrop-blur">
@@ -346,12 +399,12 @@ function Section({
   children: React.ReactNode;
 }) {
   return (
-    <section id={id} className="mx-auto max-w-6xl px-6 py-24 md:py-28">
-      <div className="mb-12 grid items-end gap-6 md:grid-cols-12">
+    <section id={id} className="mx-auto max-w-6xl px-4 sm:px-6 py-20 md:py-28 reveal">
+      <div className="mb-10 md:mb-12 grid items-end gap-6 md:grid-cols-12">
         <div className="md:col-span-3">
           <div className="font-mono text-xs uppercase tracking-[0.2em] text-ember">{eyebrow}</div>
         </div>
-        <h2 className="md:col-span-9 font-display text-4xl md:text-5xl leading-tight tracking-tight text-balance">
+        <h2 className="md:col-span-9 font-display text-3xl sm:text-4xl md:text-5xl leading-tight tracking-tight text-balance">
           {title}
         </h2>
       </div>
@@ -359,6 +412,7 @@ function Section({
     </section>
   );
 }
+
 
 function About() {
   return (
@@ -434,7 +488,7 @@ function Projects() {
         {projects.map((p, i) => (
           <article
             key={p.title}
-            className="group relative overflow-hidden rounded-2xl border border-border bg-surface/40 p-7 hover:border-ember/50 transition"
+            className="group card-lift relative overflow-hidden rounded-2xl border border-border bg-surface/40 p-6 sm:p-7 hover:border-ember/50"
             style={{ animationDelay: `${i * 80}ms` }}
           >
             <div
@@ -621,3 +675,64 @@ function Footer() {
     </footer>
   );
 }
+
+const whyMePoints = [
+  { t: "Strong Python foundation", d: "Comfortable across scripting, data, and ML stacks." },
+  { t: "AI & ML project experience", d: "Recommenders, regression, classification, RAG, agentic AI." },
+  { t: "Software engineering mindset", d: "OOP, DSA, DBMS, clean modular design." },
+  { t: "Internship experience", d: "Shipped, tested and documented production tools." },
+  { t: "Quick learner", d: "Five training programs across IBM, Cognizant, Deloitte." },
+  { t: "Open to SDE & AI/ML roles", d: "Flexible across product, platform, and ML teams." },
+];
+
+function WhyMe() {
+  return (
+    <Section
+      id="why"
+      eyebrow="02 — Why me"
+      title={<>What I bring to a <span className="italic ember-gradient-text">team</span>.</>}
+    >
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {whyMePoints.map((x) => (
+          <div
+            key={x.t}
+            className="card-lift rounded-2xl border border-border bg-surface/40 p-5 hover:border-ember/50"
+          >
+            <div className="flex items-start gap-3">
+              <span className="mt-0.5 grid h-8 w-8 shrink-0 place-items-center rounded-md bg-ember/15 text-ember">
+                <CheckCircle2 className="h-4 w-4" />
+              </span>
+              <div>
+                <div className="font-medium">{x.t}</div>
+                <div className="mt-1 text-sm text-muted-foreground">{x.d}</div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </Section>
+  );
+}
+
+function BackToTop() {
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setVisible(window.scrollY > 600);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+  return (
+    <button
+      type="button"
+      aria-label="Back to top"
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      className={`fixed bottom-5 right-5 z-50 grid h-11 w-11 place-items-center rounded-full bg-ember text-primary-foreground glow-ember transition-all duration-300 ${
+        visible ? "opacity-100 translate-y-0" : "pointer-events-none opacity-0 translate-y-3"
+      }`}
+    >
+      <ArrowUp className="h-5 w-5" />
+    </button>
+  );
+}
+
