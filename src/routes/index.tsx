@@ -180,6 +180,7 @@ const certifications = [
 ];
 
 function Portfolio() {
+  useScrollReveal();
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-background text-foreground">
       {/* Ambient backdrop */}
@@ -193,20 +194,77 @@ function Portfolio() {
       <Hero />
       <Marquee />
       <About />
+      <WhyMe />
       <Skills />
       <Projects />
       <Experience />
       <EducationAndCerts />
       <Contact />
       <Footer />
+      <BackToTop />
     </div>
   );
+}
+
+function useScrollReveal() {
+  useEffect(() => {
+    const els = document.querySelectorAll<HTMLElement>(".reveal");
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("is-visible");
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
 }
 
 function Nav() {
   return (
     <header className="sticky top-0 z-40 backdrop-blur-md bg-background/60 border-b border-border/60">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 sm:px-6 py-3 sm:py-4">
+        <a href="#top" className="flex items-center gap-2 font-mono text-sm tracking-tight">
+          <span className="inline-block h-2 w-2 rounded-full bg-ember animate-pulse-ring" />
+          <span className="hidden xs:inline">kimaya.ahire</span>
+          <span className="xs:hidden">kimaya</span>
+        </a>
+        <nav className="hidden md:flex items-center gap-7 text-sm text-muted-foreground">
+          <a href="#about" className="hover:text-foreground transition">About</a>
+          <a href="#why" className="hover:text-foreground transition">Why me</a>
+          <a href="#skills" className="hover:text-foreground transition">Skills</a>
+          <a href="#work" className="hover:text-foreground transition">Work</a>
+          <a href="#experience" className="hover:text-foreground transition">Experience</a>
+          <a href="#contact" className="hover:text-foreground transition">Contact</a>
+        </nav>
+        <div className="flex items-center gap-2">
+          <a
+            href="/Kimaya_Ahire_Resume.pdf"
+            download
+            className="group inline-flex items-center gap-1.5 rounded-full bg-ember px-3 sm:px-3.5 py-1.5 text-xs font-medium text-primary-foreground glow-ember hover:translate-y-[-1px] transition"
+          >
+            <Download className="h-3.5 w-3.5" />
+            <span className="hidden sm:inline">Download Resume</span>
+            <span className="sm:hidden">Resume</span>
+          </a>
+          <a
+            href="#contact"
+            className="group hidden sm:inline-flex items-center gap-1.5 rounded-full border border-ember/40 bg-ember/10 px-3.5 py-1.5 text-xs font-medium text-foreground hover:bg-ember hover:text-primary-foreground transition"
+          >
+            Hire me
+            <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+          </a>
+        </div>
+      </div>
+    </header>
+  );
+}
+
         <a href="#top" className="flex items-center gap-2 font-mono text-sm tracking-tight">
           <span className="inline-block h-2 w-2 rounded-full bg-ember animate-pulse-ring" />
           kimaya.ahire
