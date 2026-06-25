@@ -231,8 +231,8 @@ function Nav() {
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 sm:px-6 py-3 sm:py-4">
         <a href="#top" className="flex items-center gap-2 font-mono text-sm tracking-tight">
           <span className="inline-block h-2 w-2 rounded-full bg-ember animate-pulse-ring" />
-          <span className="hidden xs:inline">kimaya.ahire</span>
-          <span className="xs:hidden">kimaya</span>
+          <span>kimaya.ahire</span>
+
         </a>
         <nav className="hidden md:flex items-center gap-7 text-sm text-muted-foreground">
           <a href="#about" className="hover:text-foreground transition">About</a>
