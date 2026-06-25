@@ -488,7 +488,7 @@ function Projects() {
         {projects.map((p, i) => (
           <article
             key={p.title}
-            className="group relative overflow-hidden rounded-2xl border border-border bg-surface/40 p-7 hover:border-ember/50 transition"
+            className="group card-lift relative overflow-hidden rounded-2xl border border-border bg-surface/40 p-6 sm:p-7 hover:border-ember/50"
             style={{ animationDelay: `${i * 80}ms` }}
           >
             <div
