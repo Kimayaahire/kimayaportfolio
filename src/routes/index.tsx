@@ -1,6 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import {
   ArrowUpRight,
+  ArrowUp,
+  Download,
   Github,
   Linkedin,
   Mail,
@@ -15,7 +18,9 @@ import {
   Briefcase,
   Award,
   Star,
+  CheckCircle2,
 } from "lucide-react";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
