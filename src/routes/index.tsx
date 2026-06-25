@@ -265,28 +265,7 @@ function Nav() {
   );
 }
 
-        <a href="#top" className="flex items-center gap-2 font-mono text-sm tracking-tight">
-          <span className="inline-block h-2 w-2 rounded-full bg-ember animate-pulse-ring" />
-          kimaya.ahire
-        </a>
-        <nav className="hidden md:flex items-center gap-7 text-sm text-muted-foreground">
-          <a href="#about" className="hover:text-foreground transition">About</a>
-          <a href="#skills" className="hover:text-foreground transition">Skills</a>
-          <a href="#work" className="hover:text-foreground transition">Work</a>
-          <a href="#experience" className="hover:text-foreground transition">Experience</a>
-          <a href="#contact" className="hover:text-foreground transition">Contact</a>
-        </nav>
-        <a
-          href="mailto:ahirekim.2444@gmail.com"
-          className="group inline-flex items-center gap-1.5 rounded-full border border-ember/40 bg-ember/10 px-3.5 py-1.5 text-xs font-medium text-foreground hover:bg-ember hover:text-primary-foreground transition"
-        >
-          Hire me
-          <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-        </a>
-      </div>
-    </header>
-  );
-}
+
 
 function Hero() {
   return (
