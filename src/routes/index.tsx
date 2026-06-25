@@ -55,9 +55,10 @@ const skills = {
     "RAG",
     "Agentic AI",
   ],
-  "CS Foundations": ["Data Structures & Algorithms", "DBMS", "OOP"],
-  "Tools": ["GitHub", "Google Colab", "Java Swing"],
+  "CS Foundations": ["Data Structures & Algorithms", "DBMS", "OOP", "Computer Networks"],
+  "Tools": ["Git", "GitHub", "Google Colab", "Java Swing"],
 };
+
 
 const projects = [
   {
