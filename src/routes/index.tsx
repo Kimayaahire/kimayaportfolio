@@ -269,27 +269,36 @@ function Nav() {
 
 function Hero() {
   return (
-    <section id="top" className="relative mx-auto max-w-6xl px-6 pt-20 pb-24 md:pt-32 md:pb-32">
+    <section id="top" className="relative mx-auto max-w-6xl px-4 sm:px-6 pt-16 pb-20 md:pt-32 md:pb-32">
       <div className="grid items-end gap-10 md:grid-cols-12">
         <div className="md:col-span-8 animate-fade-up">
           <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-3 py-1 text-xs font-mono text-muted-foreground">
             <Sparkles className="h-3 w-3 text-ember" />
             Available · Graduating 2026 · Hyderabad, India
           </div>
-          <h1 className="mt-6 font-display text-[clamp(2.6rem,7vw,5.5rem)] font-500 leading-[0.95] tracking-tight text-balance">
-            Building software with a{" "}
-            <span className="italic ember-gradient-text">mind for machines</span>.
+          <h1 className="mt-6 font-display text-[clamp(2.2rem,7vw,5.5rem)] font-500 leading-[0.95] tracking-tight text-balance">
+            Software Engineer crafting{" "}
+            <span className="italic ember-gradient-text">AI-powered solutions</span>.
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground text-balance">
-            I&apos;m <span className="text-foreground">Kimaya Ahire</span> — a final-year Computer Science student shipping
-            end-to-end projects across <span className="text-foreground">software engineering</span> and{" "}
+          <p className="mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-muted-foreground text-balance">
+            I&apos;m <span className="text-foreground">Kimaya Ahire</span> — a final-year Computer Science student
+            developing end-to-end software and AI projects across{" "}
+            <span className="text-foreground">software engineering</span> and{" "}
             <span className="text-foreground">AI/ML</span>. From ride-matching recommenders to real-estate forecasting and
             agentic AI workflows.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <a
-              href="#work"
+              href="/Kimaya_Ahire_Resume.pdf"
+              download
               className="group inline-flex items-center gap-2 rounded-full bg-ember px-5 py-2.5 text-sm font-medium text-primary-foreground glow-ember hover:translate-y-[-1px] transition"
+            >
+              <Download className="h-4 w-4" />
+              Download Resume (PDF)
+            </a>
+            <a
+              href="#work"
+              className="group inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-5 py-2.5 text-sm text-foreground hover:bg-surface-2 transition"
             >
               See selected work
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -312,6 +321,7 @@ function Hero() {
             </a>
           </div>
         </div>
+
 
         <div className="md:col-span-4 animate-fade-up [animation-delay:120ms]">
           <div className="relative rounded-2xl border border-border bg-surface/60 p-6 backdrop-blur">
