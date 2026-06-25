@@ -399,12 +399,12 @@ function Section({
   children: React.ReactNode;
 }) {
   return (
-    <section id={id} className="mx-auto max-w-6xl px-6 py-24 md:py-28">
-      <div className="mb-12 grid items-end gap-6 md:grid-cols-12">
+    <section id={id} className="mx-auto max-w-6xl px-4 sm:px-6 py-20 md:py-28 reveal">
+      <div className="mb-10 md:mb-12 grid items-end gap-6 md:grid-cols-12">
         <div className="md:col-span-3">
           <div className="font-mono text-xs uppercase tracking-[0.2em] text-ember">{eyebrow}</div>
         </div>
-        <h2 className="md:col-span-9 font-display text-4xl md:text-5xl leading-tight tracking-tight text-balance">
+        <h2 className="md:col-span-9 font-display text-3xl sm:text-4xl md:text-5xl leading-tight tracking-tight text-balance">
           {title}
         </h2>
       </div>
@@ -412,6 +412,7 @@ function Section({
     </section>
   );
 }
+
 
 function About() {
   return (
