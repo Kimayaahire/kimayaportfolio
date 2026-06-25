@@ -675,3 +675,64 @@ function Footer() {
     </footer>
   );
 }
+
+const whyMePoints = [
+  { t: "Strong Python foundation", d: "Comfortable across scripting, data, and ML stacks." },
+  { t: "AI & ML project experience", d: "Recommenders, regression, classification, RAG, agentic AI." },
+  { t: "Software engineering mindset", d: "OOP, DSA, DBMS, clean modular design." },
+  { t: "Internship experience", d: "Shipped, tested and documented production tools." },
+  { t: "Quick learner", d: "Five training programs across IBM, Cognizant, Deloitte." },
+  { t: "Open to SDE & AI/ML roles", d: "Flexible across product, platform, and ML teams." },
+];
+
+function WhyMe() {
+  return (
+    <Section
+      id="why"
+      eyebrow="02 — Why me"
+      title={<>What I bring to a <span className="italic ember-gradient-text">team</span>.</>}
+    >
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {whyMePoints.map((x) => (
+          <div
+            key={x.t}
+            className="card-lift rounded-2xl border border-border bg-surface/40 p-5 hover:border-ember/50"
+          >
+            <div className="flex items-start gap-3">
+              <span className="mt-0.5 grid h-8 w-8 shrink-0 place-items-center rounded-md bg-ember/15 text-ember">
+                <CheckCircle2 className="h-4 w-4" />
+              </span>
+              <div>
+                <div className="font-medium">{x.t}</div>
+                <div className="mt-1 text-sm text-muted-foreground">{x.d}</div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </Section>
+  );
+}
+
+function BackToTop() {
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setVisible(window.scrollY > 600);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+  return (
+    <button
+      type="button"
+      aria-label="Back to top"
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      className={`fixed bottom-5 right-5 z-50 grid h-11 w-11 place-items-center rounded-full bg-ember text-primary-foreground glow-ember transition-all duration-300 ${
+        visible ? "opacity-100 translate-y-0" : "pointer-events-none opacity-0 translate-y-3"
+      }`}
+    >
+      <ArrowUp className="h-5 w-5" />
+    </button>
+  );
+}
+
