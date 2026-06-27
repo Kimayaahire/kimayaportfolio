@@ -650,7 +650,7 @@ function Contact() {
             <ContactRow icon={<Mail className="h-4 w-4" />} label="ahirekim.2444@gmail.com" href="mailto:ahirekim.2444@gmail.com" />
             <ContactRow icon={<Phone className="h-4 w-4" />} label="+91 80748 12795" href="tel:+918074812795" />
             <ContactRow icon={<MapPin className="h-4 w-4" />} label="Hyderabad, India" />
-            <ContactRow icon={<Linkedin className="h-4 w-4" />} label="www.linkedin.com/in/kimaya-ahire-494291292" href="https://www.linkedin.com/in/kimaya-ahire-494291292/" />
+            <ContactRow icon={<Linkedin className="h-4 w-4" />} label="kimaya-ahire" href="https://www.linkedin.com/in/kimaya-ahire-494291292/" />
             <ContactRow icon={<Github className="h-4 w-4" />} label="Kimayaahire" href="https://github.com/Kimayaahire" />
           </div>
         </div>
