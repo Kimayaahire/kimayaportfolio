@@ -488,10 +488,16 @@ function Projects() {
       title={<>Projects across <span className="italic ember-gradient-text">ML</span> and software.</>}
     >
       <div className="grid gap-5 md:grid-cols-2">
-        {projects.map((p, i) => (
-          <article
+        {projects.map((p, i) => {
+          const Wrapper: any = p.link ? "a" : "article";
+          const wrapperProps = p.link
+            ? { href: p.link, target: "_blank", rel: "noopener noreferrer", "aria-label": `${p.title} on GitHub` }
+            : {};
+          return (
+          <Wrapper
             key={p.title}
-            className="group card-lift relative overflow-hidden rounded-2xl border border-border bg-surface/40 p-6 sm:p-7 hover:border-ember/50"
+            {...wrapperProps}
+            className="group card-lift relative block overflow-hidden rounded-2xl border border-border bg-surface/40 p-6 sm:p-7 hover:border-ember/50"
             style={{ animationDelay: `${i * 80}ms` }}
           >
             <div
@@ -513,16 +519,24 @@ function Projects() {
                   </li>
                 ))}
               </ul>
-              <div className="mt-5 flex flex-wrap gap-2">
+              <div className="mt-5 flex flex-wrap items-center gap-2">
                 {p.stack.map((s) => (
                   <span key={s} className="rounded-md bg-background/60 px-2 py-1 text-[10px] font-mono text-muted-foreground">
                     {s}
                   </span>
                 ))}
+                {p.link && (
+                  <span className="ml-auto inline-flex items-center gap-1.5 rounded-md border border-ember/40 px-2 py-1 text-[11px] font-mono text-ember group-hover:bg-ember/10 transition">
+                    <Github className="h-3 w-3" />
+                    View on GitHub
+                    <ArrowUpRight className="h-3 w-3" />
+                  </span>
+                )}
               </div>
             </div>
-          </article>
-        ))}
+          </Wrapper>
+          );
+        })}
       </div>
     </Section>
   );
