@@ -88,6 +88,7 @@ const projects = [
       "Historical pattern analysis driving recommendations",
     ],
     stack: ["Python", "Regression", "EDA"],
+    link: "https://github.com/Kimayaahire/VueLibreEstate",
     accent: "from-[oklch(0.86_0.10_75)] to-[oklch(0.78_0.16_55)]",
   },
   {
