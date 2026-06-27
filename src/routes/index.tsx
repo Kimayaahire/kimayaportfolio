@@ -103,6 +103,7 @@ const projects = [
       "Personalized output tailored to user preferences",
     ],
     stack: ["Python", "scikit-learn", "Classification"],
+    link: "https://github.com/Kimayaahire/Travelling-Destination-Recommendor",
     accent: "from-[oklch(0.72_0.18_35)] to-[oklch(0.86_0.10_75)]",
   },
   {
