@@ -73,6 +73,7 @@ const projects = [
       "Python ML pipelines powering ride requests and real-time ops",
     ],
     stack: ["Python", "ML", "Recommendation"],
+    link: "https://github.com/Kimayaahire/AI-Carpooling-System",
     accent: "from-[oklch(0.78_0.16_55)] to-[oklch(0.72_0.18_35)]",
   },
   {
