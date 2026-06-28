@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import resumeAsset from "@/assets/Kimaya_Ahire_AResume.pdf.asset.json";
 import {
   ArrowUpRight,
   ArrowUp,
