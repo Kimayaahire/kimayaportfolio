@@ -248,7 +248,7 @@ function Nav() {
         </nav>
         <div className="flex items-center gap-2">
           <a
-            href="/Kimaya_Ahire_Resume.pdf"
+            href={resumeAsset.url}
             download
             className="group inline-flex items-center gap-1.5 rounded-full bg-ember px-3 sm:px-3.5 py-1.5 text-xs font-medium text-primary-foreground glow-ember hover:translate-y-[-1px] transition"
           >
