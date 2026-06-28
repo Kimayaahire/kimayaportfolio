@@ -293,7 +293,7 @@ function Hero() {
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <a
-              href="/Kimaya_Ahire_Resume.pdf"
+              href={resumeAsset.url}
               download
               className="group inline-flex items-center gap-2 rounded-full bg-ember px-5 py-2.5 text-sm font-medium text-primary-foreground glow-ember hover:translate-y-[-1px] transition"
             >
