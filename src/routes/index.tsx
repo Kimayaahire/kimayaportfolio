@@ -317,7 +317,7 @@ function Hero() {
             <a
               href="https://www.linkedin.com/in/kimaya-ahire-494291292/"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-5 py-2.5 text-sm text-foreground hover:bg-surface-2 transition"
             >
               <Linkedin className="h-4 w-4" /> LinkedIn
