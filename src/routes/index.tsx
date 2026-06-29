@@ -59,6 +59,8 @@ const skills = {
   "Tools": ["Git", "GitHub", "Google Colab", "Java Swing"],
 };
 
+const LINKEDIN_URL = "https://www.linkedin.com/in/kimaya-ahire-494291292/";
+
 
 const projects = [
   {
@@ -315,7 +317,7 @@ function Hero() {
               <Github className="h-4 w-4" /> GitHub
             </a>
             <a
-              href="https://www.linkedin.com/in/kimaya-ahire-494291292/"
+              href={LINKEDIN_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-5 py-2.5 text-sm text-foreground hover:bg-surface-2 transition"
@@ -650,7 +652,18 @@ function Contact() {
             <ContactRow icon={<Mail className="h-4 w-4" />} label="ahirekim.2444@gmail.com" href="mailto:ahirekim.2444@gmail.com" />
             <ContactRow icon={<Phone className="h-4 w-4" />} label="+91 80748 12795" href="tel:+918074812795" />
             <ContactRow icon={<MapPin className="h-4 w-4" />} label="Hyderabad, India" />
-            <ContactRow icon={<Linkedin className="h-4 w-4" />} label="LinkedIn" href="https://www.linkedin.com/in/kimaya-ahire-494291292/" />
+            <a
+              href={LINKEDIN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 rounded-xl border border-border bg-background/40 px-4 py-3 hover:border-ember/50 hover:bg-surface/60 transition"
+            >
+              <span className="grid h-8 w-8 place-items-center rounded-md bg-ember/15 text-ember">
+                <Linkedin className="h-4 w-4" />
+              </span>
+              <span className="text-sm">LinkedIn</span>
+              <ArrowUpRight className="ml-auto h-4 w-4 text-muted-foreground" />
+            </a>
             <ContactRow icon={<Github className="h-4 w-4" />} label="Kimayaahire" href="https://github.com/Kimayaahire" />
           </div>
         </div>
