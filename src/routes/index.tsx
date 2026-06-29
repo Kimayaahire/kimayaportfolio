@@ -670,7 +670,7 @@ function ContactRow({ icon, label, href }: { icon: React.ReactNode; label: strin
   const cls =
     "flex items-center gap-3 rounded-xl border border-border bg-background/40 px-4 py-3 hover:border-ember/50 hover:bg-surface/60 transition";
   return href ? (
-    <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noreferrer" className={cls}>
+    <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer" className={cls}>
       {Inner}
     </a>
   ) : (
